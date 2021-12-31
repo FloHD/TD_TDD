@@ -43,6 +43,24 @@ class TestFuncs(unittest.TestCase):
         self.assertFalse(funcs.ari([1]))
         self.assertTrue(funcs.ari([2,4,6]))
         self.assertFalse(funcs.ari([2,4,7]))
+
+    def test_geo2(self):
+        flag1, data_add1 = funcs.geo2([2,4,8],2)
+        self.assertTrue(flag1)
+        self.assertEqual(data_add1,[16, 32])
+
+        flag1, data_add1 = funcs.geo2([2,4,7],2)
+        self.assertFalse(flag1)
+        self.assertEqual(data_add1,[])
+
+    def test_ari2(self):
+        flag1, data_add1 = funcs.ari2([2,4,6],2)
+        self.assertTrue(flag1)
+        self.assertEqual(data_add1,[8, 10])
+
+        flag1, data_add1 = funcs.ari2([2,4,7],2)
+        self.assertFalse(flag1)
+        self.assertEqual(data_add1,[])
         
 
 if __name__ == '__main__':
