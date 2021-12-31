@@ -36,6 +36,8 @@ def st_dev(data):
 		st_dev = var**0.5
 		return st_dev
 
+
+
 def geo(data):
 	if len(data) <= 1:
 		return False
