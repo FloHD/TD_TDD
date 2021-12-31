@@ -17,7 +17,7 @@ class TestFuncs(unittest.TestCase):
         self.assertEqual(funcs.mean({-2,2,2,-2}),0)
         self.assertEqual(funcs.mean({-1.2,3.6,4}),(-1.2 + 3.6 + 4) / 3.0)
         self.assertEqual(funcs.mean({2}),2)
-        self.assertEqual(funcs.mean({}),None)
+        self.assertIsNone(funcs.mean({}))
 
     def test_median(self):
         self.assertEqual(funcs.median({3,1,4}),3)
@@ -27,11 +27,22 @@ class TestFuncs(unittest.TestCase):
         self.assertEqual(funcs.median({-1.2,3.6,4}),3.6)
         self.assertEqual(funcs.median({-1.2,3.6,4,2.6}),3.1)
         self.assertEqual(funcs.median({2}),2)
-        self.assertEqual(funcs.median({}),None)
+        self.assertIsNone(funcs.median({}))
 
     def test_st_dev(self):
         self.assertEqual(funcs.st_dev({2,4,6}),1.4142135623730951)
-        self.assertEqual(funcs.st_dev({}),None)
+        self.assertIsNone(funcs.st_dev({}))
+
+    def test_geo(self):
+        self.assertFalse(funcs.geo([1]))
+        self.assertTrue(funcs.geo([2,4,8]))
+        self.assertFalse(funcs.geo([2,4,7]))
+
+    def test_ari(self):
+        self.assertFalse(funcs.ari([1]))
+        self.assertTrue(funcs.ari([2,4,6]))
+        self.assertFalse(funcs.ari([2,4,7]))
+        
 
 if __name__ == '__main__':
     unittest.main()
