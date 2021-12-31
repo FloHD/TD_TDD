@@ -35,3 +35,33 @@ def st_dev(data):
 		var = sum((l-mean)**2 for l in data) / len(data)
 		st_dev = var**0.5
 		return st_dev
+
+def geo(data):
+	if len(data) <= 1:
+		return False
+	
+	else:
+		flag = True
+		reason = data[1] / data[0]
+
+		for i in range(len(data)-1):
+			if(data[i] != data[i+1]/reason):
+				flag = False	
+				break
+
+		return flag
+
+def ari(data):
+	if len(data) <= 1:
+		return False
+	
+	else:
+		flag = True
+		reason = data[1] - data[0]
+
+		for i in range(len(data)-1):
+			if(data[i] != data[i+1]-reason):
+				flag = False	
+				break
+
+		return flag
