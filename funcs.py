@@ -17,7 +17,7 @@ def median(data):
 	data = sorted(data)
 	l = len(data)
 	
-	if l < 1:
+	if l == 0:
 		return None
 
 	if l % 2 == 0:
@@ -25,3 +25,13 @@ def median(data):
 
 	else:
 		return data[(l-1)/2]
+
+def st_dev(data):
+	if len(data) == 0:
+		return None
+
+	else:
+		mean = sum(data)/len(data)
+		var = sum((l-mean)**2 for l in data) / len(data)
+		st_dev = var**0.5
+		return st_dev
