@@ -2,6 +2,7 @@ import funcs
 import unittest
 
 
+
 class TestFuncs(unittest.TestCase):
 
     def test_min_int(self):
@@ -27,6 +28,10 @@ class TestFuncs(unittest.TestCase):
         self.assertEqual(funcs.median({-1.2,3.6,4,2.6}),3.1)
         self.assertEqual(funcs.median({2}),2)
         self.assertEqual(funcs.median({}),None)
+
+    def test_st_dev(self):
+        self.assertEqual(funcs.st_dev({2,4,6}),1.4142135623730951)
+        self.assertEqual(funcs.st_dev({}),None)
 
 if __name__ == '__main__':
     unittest.main()
