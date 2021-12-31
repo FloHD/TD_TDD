@@ -33,6 +33,7 @@ class TestFuncs(unittest.TestCase):
         self.assertEqual(funcs.st_dev({2,4,6}),1.4142135623730951)
         self.assertIsNone(funcs.st_dev({}))
 
+
     def test_geo(self):
         self.assertFalse(funcs.geo([1]))
         self.assertTrue(funcs.geo([2,4,8]))
