@@ -67,3 +67,57 @@ def ari(data):
 				break
 
 		return flag
+
+
+
+def geo2(data, n):
+	data_add = []
+
+	if len(data) <= 1:
+		return False
+	
+	else:
+		flag = True
+		reason = data[1] / data[0]
+
+		for i in range(len(data)-1):
+			if(data[i] != data[i+1]/reason):
+				flag = False	
+				break
+
+		if flag == True:
+			last = data[len(data)-1]
+			for j in range(n):
+				data_add.append(last*reason)
+				last = data_add[len(data_add)-1]
+
+		#print(data_add)
+
+		return flag, data_add
+
+def ari2(data, n):
+	data_add = []
+
+	if len(data) <= 1:
+		return False
+	
+	else:
+		flag = True
+		reason = data[1] - data[0]
+
+		for i in range(len(data)-1):
+			if(data[i] != data[i+1]-reason):
+				flag = False	
+				break
+
+		if flag == True:
+			last = data[len(data)-1]
+			for j in range(n):
+				data_add.append(last+reason)
+				last = data_add[len(data_add)-1]
+
+		#print(data_add)
+
+		return flag, data_add
+
+	
