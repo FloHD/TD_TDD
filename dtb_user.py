@@ -63,7 +63,7 @@ def insert_into(username, password, spublickey, sprivatekey, epublickey, eprivat
     try:
         conn = sqlite3.connect('dtb_user.db')
         cur = conn.cursor()
-        print("Connexion réussie à SQLite")
+        #print("Connexion réussie à SQLite")
         
         sql = "INSERT INTO utilisateur (username, password, spublickey, sprivatekey, epublickey, eprivatekey) VALUES (?, ?, ?, ?, ?, ?)"
         value = (username, password, spublickey, sprivatekey, epublickey, eprivatekey)
@@ -73,7 +73,7 @@ def insert_into(username, password, spublickey, sprivatekey, epublickey, eprivat
         print("Champs insérés avec succès dans la table utilisateur")
         cur.close()
         conn.close()
-        print("Connexion SQLite est fermée")
+        #print("Connexion SQLite est fermée")
       
     except sqlite3.Error as error:
        print("Erreur lors de l'insertion dans la table SQLite", error)
