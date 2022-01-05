@@ -59,7 +59,42 @@ def drop_table():
         print("Erreur lors de la suppression de la table SQLite", error)
 
 
+def insert_into(username, password, spublickey, sprivatekey, epublickey, eprivatekey):
+    try:
+        conn = sqlite3.connect('dtb_user.db')
+        cur = conn.cursor()
+        print("Connexion réussie à SQLite")
+        
+        sql = "INSERT INTO utilisateur (username, password, spublickey, sprivatekey, epublickey, eprivatekey) VALUES (?, ?, ?, ?, ?, ?)"
+        value = (username, password, spublickey, sprivatekey, epublickey, eprivatekey)
+        
+        cur.execute(sql, value)
+        conn.commit()
+        print("Champs insérés avec succès dans la table utilisateur")
+        cur.close()
+        conn.close()
+        print("Connexion SQLite est fermée")
+      
+    except sqlite3.Error as error:
+       print("Erreur lors de l'insertion dans la table SQLite", error)
+
+
+
 
 #connect_to()
 create_table()
-#drop_table()
+drop_table()
+insert_into('Jacques',
+            'Jacques1$',
+            '1000000000',
+            '0000000000',
+            '1000000000',
+            '0000000000'
+            )
+# insert_into('Eveline',
+#             'Eveline2€',
+#             '0000000001',
+#             '1000000000',
+#             '0000000001',
+#             '1000000000'
+#             )
