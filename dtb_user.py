@@ -83,7 +83,7 @@ def insert_into(username, password, spublickey, sprivatekey, epublickey, eprivat
 
 #connect_to()
 create_table()
-drop_table()
+#drop_table()
 insert_into('Jacques',
             'Jacques1$',
             '1000000000',
